@@ -1,4 +1,4 @@
----
+﻿---
 name: skills-sync
 description: 同步、備份、打包與上傳 Codex skills。Use when the user says 更新skills、同步skills、備份skills、上傳skills到GitHub、建立skills懶人包、換電腦恢復skills、把skills放入第二大腦，或要求 Codex 同步本機 skills、第二大腦、Google Drive 懶人包與 GitHub skills repo.
 ---
@@ -36,3 +36,9 @@ Use this workflow when the user asks to update, back up, package, restore, or pu
 - Use UTF-8 safe reading/writing for Traditional Chinese notes.
 - When the user says `更新skills`, treat it as a request to update Second Brain and GitHub together, not only local files.
 - If GitHub push fails, still update local Google Drive backup and Second Brain, then report the blocker.
+## 2026-05-25 Canonical Second Brain Rule
+
+- Canonical human-readable source for personal skills: `G:\我的雲端硬碟\我的第二大腦\Codex標準\skills`.
+- When the user says `建立skills`, create or update the skill in the Second Brain canonical folder first, then sync to `%USERPROFILE%\.codex\skills`, `G:\我的雲端硬碟\2026codex\skills`, and `codex-skills-lazy-pack`.
+- GitHub lazy-pack must include both individual skill ZIP files and one all-in-one package: `packages/codex-personal-skills-bundle.zip`.
+- The all-in-one package must contain `skills/` and `install-all-skills.ps1` so a new computer can install every personal skill in one step.

@@ -1,6 +1,6 @@
-# Codex Skills Index
+﻿# Codex Skills Index
 
-更新時間：2026-05-25
+更新時間：2026-05-25 16:45
 
 ## 個人 skills
 
@@ -32,3 +32,20 @@
 5. G:\我的雲端硬碟\2026codex\01.5-Codex必裝Skills與Plugins.md。
 
 .system skills 只做索引，不預設打包。
+
+## 2026-05-25 收工同步
+
+- 已重新同步 6 個 personal skills 至 `skills/` 與 `packages/`。
+- `shutdown-sync` 新增換電腦前收工規則：精準繁體中文、踩坑點寫入第二大腦、未完成事項納入版本控制、確認提交與推送。
+- `html-training-deck` 新增年度行事曆視覺與重複資訊規則：收件核對台卡片化、來源旁放已完成/未完成、避免「本頁相關 SOP / 依頻率分組 / 來源」重複、關鍵設備行事曆使用條列式選單。
+- 明顯敏感資訊掃描未發現 API key、token、password、secret 或 private key；命中項目僅為 skill 說明文字。
+## 整包懶人包
+
+| Package | 路徑 | 用途 |
+|---|---|---|
+| codex-personal-skills-bundle.zip | `packages/codex-personal-skills-bundle.zip` | 一次安裝所有 personal skills，內含 `skills/` 與 `install-all-skills.ps1`。 |
+
+## 第二大腦 canonical source
+
+- `G:\我的雲端硬碟\我的第二大腦\Codex標準\skills`
+- 之後使用者說「建立skills」時，先在第二大腦建立或更新，再同步到本機、Google Drive 備份與 GitHub lazy-pack。
