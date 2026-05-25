@@ -1,0 +1,3 @@
+display_name: Startup Sync
+short_description: Load project context and check workspace state at session start.
+default_prompt: 啟動同步

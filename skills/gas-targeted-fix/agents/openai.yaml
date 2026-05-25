@@ -1,0 +1,6 @@
+interface:
+  display_name: "GAS 程式碼精準修正"
+  short_description: "最小改動修正 Google Apps Script 程式碼"
+  default_prompt: "Use $gas-targeted-fix to help me fix this Google Apps Script code with minimal changes."
+policy:
+  allow_implicit_invocation: true

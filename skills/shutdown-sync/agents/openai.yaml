@@ -1,0 +1,3 @@
+display_name: Shutdown Sync
+short_description: Review changes and wrap up the project session.
+default_prompt: 收尾同步

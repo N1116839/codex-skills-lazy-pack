@@ -1,0 +1,3 @@
+display_name: Skills Sync
+short_description: 同步本機 skills、第二大腦、Google Drive 懶人包與 GitHub skills repo。
+default_prompt: 更新skills，並同步第二大腦、Google Drive 懶人包與 GitHub。
