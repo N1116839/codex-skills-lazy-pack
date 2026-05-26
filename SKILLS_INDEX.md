@@ -56,3 +56,10 @@
 - `startup-sync` 已改為 #07 開工接續助手：讀工作筆記、查 Git 狀態、可 fetch、不可自動 pull、不可修改工作筆記。
 - `shutdown-sync` 已改為 #07 收工同步助手：更新工作筆記、保存踩坑、更新第二大腦、stage 相關檔案、commit、push，並避免提交 `.claude/` 與敏感資料。
 - 已更新三個 skill zip 與 `codex-personal-skills-bundle.zip`。
+
+## 2026-05-26 html-training-deck 補資料
+
+- `html-training-deck` 已補入新勝 GDP HTML 內訓踩坑：文件點擊互動、部門文件閱讀地圖、GDP 智慧查詢、FAQ 點擊與輸入一致性、learner-facing HTML 不顯示使用者回饋或 `更新者：system`。
+- 已補入互動定義：優先使用滑桿、拖拉、篩選、勾選、點擊解說、互動圖表等可操作學習，不把 hover/parallax 說明當作主要互動。
+- 已補入資料正確性規則：第一章至第八章需盤點，時程目錄只作參考，正式內容以 SOP/WI/FR 原文為主，有出入需回報。
+- 已更新 `html-training-deck.zip` 與 `codex-personal-skills-bundle.zip`。
