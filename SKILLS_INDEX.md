@@ -7,6 +7,7 @@
 | Skill | 類型 | GitHub 資料夾 | ZIP 懶人包 | 用途 |
 |---|---|---|---|---|
 | gas-targeted-fix | personal | `skills/gas-targeted-fix` | `packages/gas-targeted-fix.zip` | 精準修正 Google Apps Script 與一般程式碼。Use when the user asks in Traditional Chinese to fix code, such as "幫我修正程式碼", "修正程式", "改程式", "幫我改 GAS", "修正 Apps Script", "Google Sheets 自動化壞了", or asks for minimal, non-refactoring code changes. Preserve original logic, naming, comments, structure, and style unless the user explicitly requests broader changes. |
+| html-evidence-training-builder | personal | `skills/html-evidence-training-builder` | `packages/html-evidence-training-builder.zip` | Build or revise traceable HTML training databases from user-provided SOP/WI/FR, deck, spreadsheet, and document sources; enforce source traceability, no invented company facts, Firestore sync, and image2/imagegen visual planning. |
 | html-training-deck | personal | `skills/html-training-deck` | `packages/html-training-deck.zip` | 建立或修訂 HTML 內部教育訓練簡報、內部稽核教材、SOP 學習平台、稽查重點頁、Q&A 學習頁、互動式年度行事曆與 image2 視覺化教材。Use when the user asks for HTML簡報、內部教育訓練、內部稽核、稽查重點、SOP學習、Q&A、年度資料收件行事曆、部門訓練、互動式教材、GitHub Pages 發佈前檢查。 |
 | project-init-sync | personal | `skills/project-init-sync` | `packages/project-init-sync.zip` | Initialize the classroom tools working mode from lazy-pack #07, including the Google Drive project folder, project blueprint, Git/GitHub, Obsidian working note, and startup/shutdown workflow references. |
 | shutdown-sync | personal | `skills/shutdown-sync` | `packages/shutdown-sync.zip` | Shutdown synchronization helper from lazy-pack #07. Triggered by 收工/先收工/結束工作/換電腦 requests; updates Obsidian working note, records pitfalls, commits, and pushes relevant project changes. |
@@ -63,3 +64,9 @@
 - 已補入互動定義：優先使用滑桿、拖拉、篩選、勾選、點擊解說、互動圖表等可操作學習，不把 hover/parallax 說明當作主要互動。
 - 已補入資料正確性規則：第一章至第八章需盤點，時程目錄只作參考，正式內容以 SOP/WI/FR 原文為主，有出入需回報。
 - 已更新 `html-training-deck.zip` 與 `codex-personal-skills-bundle.zip`。
+
+## 2026-05-26 html-evidence-training-builder 新增
+
+- 新增 `html-evidence-training-builder`：使用者提供資料製作 HTML 資料庫/教材時，先做來源盤點、可追溯資料庫索引、Firestore 同步，再做視覺化互動與 image2/imagegen 規劃。
+- 已同步本機、Google Drive skills 備份、第二大腦 canonical、lazy-pack repo。
+- 已新增 `html-evidence-training-builder.zip` 並重建 `codex-personal-skills-bundle.zip`。

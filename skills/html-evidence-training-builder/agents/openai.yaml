@@ -1,0 +1,3 @@
+display_name: HTML Evidence Training Builder
+short_description: Build source-traceable HTML training databases and learning pages.
+default_prompt: Use source files to build or revise a traceable HTML training page, synchronize the knowledge base, then plan visual and interactive enhancements.
