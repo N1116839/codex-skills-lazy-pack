@@ -14,6 +14,9 @@ description: Build or revise traceable HTML training databases and internal lear
 5. If international law, Taiwan law, and company practice conflict, surface the conflict and ask whether to revise company material.
 6. If source files have repeated years or versions, prefer the newest confirmed source and record the version assumption.
 7. Separate text correction from visual enhancement: finish source-backed wording first, then do interaction and image work.
+8. **Full coverage is mandatory**: Count every file in the source folder before starting. Read every file — no skipping, no partial reads. The database must have exactly as many records as there are source files. Fewer records = incomplete, regardless of how much time was spent.
+9. **One record = one topic**: If a single SOP covers multiple distinct topics, split into multiple records. Each record's content and keywords must cover only that one topic — no mixing.
+10. **Self-test before commit**: After adding or editing records, Claude runs precision-search tests internally (at least 5 query groups per chapter). Do not commit or declare done until all tests pass. Do not wait for the user to discover failures.
 
 ## Workflow
 
@@ -52,9 +55,15 @@ description: Build or revise traceable HTML training databases and internal lear
 
 7. Validate.
    - Run JavaScript syntax checks for HTML.
-   - Spot-check key queries the user named.
    - Read back database records after upload.
    - Update project handoff notes with what changed and what still needs review.
+   - **Precision-search test — Claude runs this internally after every add/edit, before commit:**
+     1. Count files per folder; KB record count must equal source file count. Do not declare done until they match.
+     2. For each chapter or department, run at least 5 query groups covering different topics.
+        - One group = multiple phrasings of the same topic (e.g. "盤點 / 倉庫盤點 / 多久盤點 / 庫存檢查" = 1 group).
+        - Invent queries from the learner's perspective: verb-form ("怎麼做"), noun ("溫度計"), time ("多久"), number ("幾度"), scenario ("超標怎麼辦").
+     3. Each group passes only when: (a) the expected record surfaces, no wrong record surfaces; (b) all three columns (international / Taiwan / xinshing) match the source SOP text; if a column has no explicit rule, it must say "無明文規定" — not an inference.
+     4. Do NOT wait for the user to report test failures. Run the test yourself, fix before committing.
 
 ## Required Caution
 
