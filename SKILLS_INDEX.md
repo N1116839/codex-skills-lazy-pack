@@ -1,11 +1,12 @@
 ﻿# Codex Skills Index
 
-更新時間：2026-05-26
+更新時間：2026-05-29
 
 ## 個人 skills
 
 | Skill | 類型 | GitHub 資料夾 | ZIP 懶人包 | 用途 |
 |---|---|---|---|---|
+| evidence-based-content | personal | `skills/evidence-based-content` | `packages/evidence-based-content.zip` | 資料正確性與可追溯標準。任何涉及 GDP 知識庫條目、內部教育訓練平台資料、論文報告時套用。當使用者說「校對資料庫」「整理 KB」「查文獻」「驗證資料」「逐筆核對」「資料要扎實」「有理有據」「不要推論」「來源在哪」時觸發。 |
 | gas-targeted-fix | personal | `skills/gas-targeted-fix` | `packages/gas-targeted-fix.zip` | 精準修正 Google Apps Script 與一般程式碼。Use when the user asks in Traditional Chinese to fix code, such as "幫我修正程式碼", "修正程式", "改程式", "幫我改 GAS", "修正 Apps Script", "Google Sheets 自動化壞了", or asks for minimal, non-refactoring code changes. Preserve original logic, naming, comments, structure, and style unless the user explicitly requests broader changes. |
 | html-evidence-training-builder | personal | `skills/html-evidence-training-builder` | `packages/html-evidence-training-builder.zip` | Build or revise traceable HTML training databases from user-provided SOP/WI/FR, deck, spreadsheet, and document sources; enforce source traceability, no invented company facts, Firestore sync, and image2/imagegen visual planning. |
 | html-training-deck | personal | `skills/html-training-deck` | `packages/html-training-deck.zip` | 建立或修訂 HTML 內部教育訓練簡報、內部稽核教材、SOP 學習平台、稽查重點頁、Q&A 學習頁、互動式年度行事曆與 image2 視覺化教材。Use when the user asks for HTML簡報、內部教育訓練、內部稽核、稽查重點、SOP學習、Q&A、年度資料收件行事曆、部門訓練、互動式教材、GitHub Pages 發佈前檢查。 |
