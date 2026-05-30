@@ -29,7 +29,7 @@ Use this workflow at the end of a project session. It is the writing counterpart
    - `G:\我的雲端硬碟\我的第二大腦\知識庫\index.md`.
    - `G:\我的雲端硬碟\我的第二大腦\知識庫\log.md`.
 7. Check Git status.
-8. Stage only relevant files. Never stage `.claude/`, secrets, credentials, large raw media, unrelated screenshots, dependencies, or unrelated untracked files.
+8. Stage only relevant files. Never stage `.claude/`, `.codex/`, secrets, credentials, large raw media, unrelated screenshots, dependencies, or unrelated untracked files.
 9. Commit with a concise message that says what changed and why.
 10. Push the current branch to the configured remote.
 11. Report the three-way sync status: GDrive, Obsidian, GitHub.
@@ -69,5 +69,5 @@ Use this workflow at the end of a project session. It is the writing counterpart
 ## Do Not
 
 - Do not run `git add .` blindly.
-- Do not commit `.claude/settings.local.json`, `.claude/worktrees/`, secrets, tokens, credentials, or generated dependency folders.
+- Do not commit `.claude/`, `.codex/`, secrets, tokens, credentials, or generated dependency folders.
 - Do not run synchronization for a conversation with no substantive progress; report that there was nothing to sync.

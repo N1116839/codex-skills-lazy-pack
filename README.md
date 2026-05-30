@@ -1,6 +1,9 @@
 # Codex Skills Lazy Pack
 
-**一鍵安裝個人 Claude Code skills + MCP 環境設定**
+**一鍵安裝個人 Skills + MCP 環境設定**
+
+> ✅ 同時支援 **OpenAI Codex**（`.codex/`）與 **Claude Code**（`.claude/`）。
+> Skills 相容兩者，安裝腳本自動判斷目標環境。
 
 換電腦？新電腦？跑完這份 lazy pack，5 分鐘恢復完整工作環境。
 
@@ -20,6 +23,8 @@
 | `shutdown-sync` | 收工三方同步 | 收工、先收工、結束工作、換電腦 |
 | `startup-sync` | 開工接續上次工作 | 開工、上次做到哪、接續工作 |
 | `skills-sync` | 備份與同步 skills | 更新 skills、同步 skills、備份 skills |
+
+> 💡 Codex 使用者：skills 安裝在 `%USERPROFILE%\.codex\skills`，觸發詞與 Claude 版共用。
 
 ### MCP 伺服器設定腳本
 
@@ -83,12 +88,12 @@ bash install-all-skills.sh
 
 ## 換電腦完整流程
 
-1. 新電腦安裝 Claude Code（Pro 方案）
-2. 安裝基礎工具：Git、Node.js、uv（看[懶人包 #00](https://github.com/mathruffian-dot/claude-code-lazy-packs)）
+1. 新電腦安裝 **OpenAI Codex**（[下載 Desktop app](https://developers.openai.com/codex/app)）或 **Claude Code**（Pro 方案）
+2. 安裝基礎工具：Git、Node.js、uv（看[#00 環境建置](https://github.com/mathruffian-dot/codex-lazy-packs)）
 3. `git clone` 本 repo
 4. 執行 `install-all-skills.ps1`（Windows）或 `install-all-skills.sh`（mac）
 5. 執行 `setup-mcp.ps1` / `setup-mcp.sh`，輸入 vault 路徑
-6. 重啟 Claude Code
+6. 重啟 AI agent
 7. 說「開工」驗證
 
 ---

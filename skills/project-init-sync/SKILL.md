@@ -29,8 +29,8 @@ Use this workflow to initialize the #07 classroom tools working mode. This skill
 6. Create or update `.gitignore`. It must exclude:
    - `desktop.ini`, `*.tmp`, `~$*`.
    - `.env`, `*.key`, `credentials.*`.
-   - `.claude/`.
-   - `node_modules/`.
+    - `.claude/`, `.codex/`.
+    - `node_modules/`.
 7. Preserve Firebase files if they already exist: `.firebaserc`, `firebase.json`, and `firestore.rules`.
 8. Initialize Git if the folder is not already a repository.
 9. Apply `git config windows.appendAtomically false` for Windows folders that may sync through Drive or OneDrive.
@@ -74,6 +74,6 @@ Use this structure for the Obsidian working note:
 
 ## Safety Rules
 
-- Never commit `.claude/`, secrets, API keys, tokens, credentials, or local permission files.
+- Never commit `.claude/`, `.codex/`, secrets, API keys, tokens, credentials, or local permission files.
 - Do not run `git add .` blindly. Stage only intended files.
 - If GitHub authentication or Pages setup is blocked, still finish local and Obsidian setup, then report the blocker.
