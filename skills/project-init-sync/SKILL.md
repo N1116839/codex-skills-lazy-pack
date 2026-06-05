@@ -1,6 +1,6 @@
 ---
 name: project-init-sync
-description: Initialize the classroom tools working mode from lazy-pack #07, including the Google Drive project folder, project blueprint, Git/GitHub, Obsidian working note, and startup/shutdown workflow references. Use when the user says 初始化班級工具工作模式, 專案初始化, project init sync, 老師建專案模式, or asks Codex to set up a new classroom tools project from the #07 workflow.
+description: Initialize a new project folder with the #07 classroom tools working mode, including Google Drive folder, AGENTS.md blueprint, Git/GitHub, Obsidian working note, and startup/shutdown workflow references. Use when the user says 專案初始化, 初始化專案, 初始化班級工具工作模式, project init sync, 老師建專案模式, 幫我建專案, 幫我建新專案, 新增專案, 在這個資料夾初始化, or asks Codex to set up a new project from scratch in any folder.
 ---
 
 # Project Init Sync

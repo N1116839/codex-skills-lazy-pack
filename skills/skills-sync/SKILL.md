@@ -43,3 +43,9 @@ Use this workflow when the user asks to update, back up, package, restore, or pu
 - When the user says `建立skills`, create or update the skill in the Second Brain canonical folder first, then sync to `%USERPROFILE%\.codex\skills`, `G:\我的雲端硬碟\2026codex\skills`, and `codex-skills-lazy-pack`.
 - GitHub lazy-pack must include both individual skill ZIP files and one all-in-one package: `packages/codex-personal-skills-bundle.zip`.
 - The all-in-one package must contain `skills/` and `install-all-skills.ps1` so a new computer can install every personal skill in one step.
+
+## Claude Code 對應路徑
+
+若使用者用的是 Claude Code（非 Codex），技能安裝路徑改為：
+- `C:\Users\<使用者>\.claude\skills\<skill-name>.md`（單一 .md 檔，不是資料夾）
+- 每次更新同時寫入 Codex 路徑與 Claude Code 路徑。
