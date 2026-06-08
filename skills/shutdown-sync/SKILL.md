@@ -66,6 +66,7 @@ At every 收工, check whether the session complied with these rules and write a
 
 - Agent-created temporary files use the `_暫存` suffix before the extension.
 - Agent-downloaded internet files use the agent-name prefix, such as `codex_檔案名稱`.
+- Flag these as violations if created by an agent: `暫存.txt`, `下載.txt`, `test.txt`, `temp.docx`, or any other unprefixed/unsuffixed disposable-looking name.
 - Files or folders without an `AI名稱_` prefix and without a `_暫存` suffix were treated as user data and were not deleted, moved, renamed, cleaned, or overwritten.
 - Any user-authorized deletion of an unnamed file or folder was recorded with exact path, reason, timestamp, and authorization.
 - Agent-used source evidence was public, downloadable, traceable, and from a real source, unless it was explicitly user-provided private project material.

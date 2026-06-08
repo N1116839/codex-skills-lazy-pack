@@ -137,6 +137,7 @@ codex-skills-lazy-pack/
 
 | 日期 | 更新內容 |
 |------|---------|
+| 2026-06-08 | 補強換電腦規則：`暫存.txt`、`下載.txt` 明確列為違規命名；開工時應直接套用全域規範，不得反問是哪條規定 |
 | 2026-06-08 | 新增全域 AI 檔案保護規範：暫存檔 `_暫存`、下載檔 `AI名稱_`、未命名檔案視為使用者資料不得刪除；更新 project-init/startup/shutdown/skills-sync 與 zip |
 | 2026-05-29 | 改為 public；加入跨電腦 MCP 安裝腳本、SessionEnd hook、macOS/Linux 支援 |
 | 2026-05-25 | 同步 6 個 personal skills、更新 shutdown-sync 與 html-training-deck |
@@ -146,6 +147,7 @@ codex-skills-lazy-pack/
 
 - Agent 測試暫存檔：檔名結尾需加 `_暫存`。
 - Agent 網路下載檔：檔名前綴需加 AI 名稱，例如 `codex_檔案名稱`。
+- `暫存.txt`、`下載.txt`、`test.txt`、`temp.docx` 都是違規例，不可作為 agent 建立的暫存或下載檔。
 - 沒有 `AI名稱_` 前綴、也沒有 `_暫存` 後綴的檔案或資料夾，一律視為使用者資料，不可刪除、移動、改名、覆蓋或清理。
 - 使用者授權刪除未命名檔案時，必須紀錄路徑、原因、時間與授權來源。
 - AI 使用的下載來源需公開、可下載、可追溯且來源真實；例如公司公開 ESG 公文、公開財報、政府常見缺失、國際法規條文。
