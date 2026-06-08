@@ -55,6 +55,7 @@ At every 開工 / 專案繼續, re-read and restate any project-specific version
 - Agent-created temporary files must include `_暫存` at the end of the file name before the extension.
 - Files downloaded by an agent from the internet must start with the agent name and underscore, such as `codex_檔案名稱`.
 - Forbidden examples: `暫存.txt`, `下載.txt`, `test.txt`, `temp.docx`. These names are non-compliant because they lack the required suffix or prefix.
+- If the user asks to create a temporary file or download-file example, use a compliant name immediately, such as `命名規則示範_暫存.txt` or `codex_下載檔案示範.txt`. Asking what content to put inside does not permit creating a non-compliant file first.
 - Files or folders without an `AI名稱_` prefix and without a `_暫存` suffix are user data by default.
 - User data must not be deleted, moved, renamed, cleaned, overwritten, or treated as disposable untracked files.
 - If the user explicitly authorizes deleting an unnamed file or folder, record the deleted path, reason, timestamp, and authorization source in the project handoff or working note.

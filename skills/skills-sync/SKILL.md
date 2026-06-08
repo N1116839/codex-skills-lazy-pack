@@ -38,3 +38,4 @@ Use this workflow when the user asks to update, back up, package, restore, or pu
 - If GitHub push fails, still update local Google Drive backup and Second Brain, then report the blocker.
 - Preserve and propagate the global AI file protection rules when syncing skills: agent temporary files must use `_暫存`, agent downloads must use an `AI名稱_` prefix, and unnamed files/folders are user data that must not be deleted without explicit authorization and a written deletion record.
 - Treat `暫存.txt` and `下載.txt` as explicit non-compliant examples. They must be renamed at creation time, not accepted as valid shorthand.
+- The rule applies even for empty demonstration files. If the user asks to create a temporary or download example file, the compliant file name is mandatory before content decisions.

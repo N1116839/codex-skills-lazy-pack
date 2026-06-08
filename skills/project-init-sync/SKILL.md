@@ -85,6 +85,7 @@ Project initialization must write these rules into the new project's `AGENTS.md`
 - Agent-created temporary files must include `_暫存` at the end of the file name before the extension, for example `report_暫存.html`.
 - Files downloaded by an agent from the internet must start with the agent name and underscore, for example `codex_source.pdf` or `claude_reference.docx`.
 - Forbidden examples: `暫存.txt`, `下載.txt`, `test.txt`, `temp.docx`. These lack the required `_暫存` suffix or `AI名稱_` prefix and must be treated as user data once created.
+- If the user asks to create a temporary file or a download-file example without specifying content, create a minimal compliant demonstration file. Do not create `暫存.txt` or `下載.txt`, and do not use "ask for content first" to bypass the naming rule.
 - Any file or folder that does not start with `AI名稱_` and does not end with `_暫存` is user data by default. It must not be deleted, moved, renamed, cleaned, or overwritten.
 - Deleting an unnamed file or folder is forbidden unless the user explicitly authorizes the exact path. The deletion must be recorded in the project handoff or working note with path, reason, time, and authorizing user instruction.
 - Agent-downloaded or agent-created project materials must be public, downloadable, traceable, and from a real source when used as source evidence, such as public company ESG documents, public financial reports, government deficiency publications, or named international regulations.
