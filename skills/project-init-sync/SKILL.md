@@ -1,6 +1,6 @@
 ---
 name: project-init-sync
-description: Initialize a new project folder with the #07 classroom tools working mode, including Google Drive folder, AGENTS.md blueprint, Git/GitHub, Obsidian working note, and startup/shutdown workflow references. Use when the user says 專案初始化, 初始化專案, 初始化班級工具工作模式, project init sync, 老師建專案模式, 幫我建專案, 幫我建新專案, 新增專案, 在這個資料夾初始化, or asks Codex to set up a new project from scratch in any folder.
+description: Initialize the classroom tools working mode from lazy-pack #07, including the Google Drive project folder, project blueprint, Git/GitHub, Obsidian working note, and startup/shutdown workflow references. Use when the user says 初始化班級工具工作模式, 專案初始化, project init sync, 老師建專案模式, or asks Codex to set up a new classroom tools project from the #07 workflow.
 ---
 
 # Project Init Sync
@@ -29,8 +29,8 @@ Use this workflow to initialize the #07 classroom tools working mode. This skill
 6. Create or update `.gitignore`. It must exclude:
    - `desktop.ini`, `*.tmp`, `~$*`.
    - `.env`, `*.key`, `credentials.*`.
-    - `.claude/`, `.codex/`.
-    - `node_modules/`.
+   - `.claude/`.
+   - `node_modules/`.
 7. Preserve Firebase files if they already exist: `.firebaserc`, `firebase.json`, and `firestore.rules`.
 8. Initialize Git if the folder is not already a repository.
 9. Apply `git config windows.appendAtomically false` for Windows folders that may sync through Drive or OneDrive.
@@ -74,6 +74,17 @@ Use this structure for the Obsidian working note:
 
 ## Safety Rules
 
-- Never commit `.claude/`, `.codex/`, secrets, API keys, tokens, credentials, or local permission files.
+- Never commit `.claude/`, secrets, API keys, tokens, credentials, or local permission files.
 - Do not run `git add .` blindly. Stage only intended files.
 - If GitHub authentication or Pages setup is blocked, still finish local and Obsidian setup, then report the blocker.
+
+## Global AI File Protection Rules
+
+Project initialization must write these rules into the new project's `AGENTS.md` or equivalent project blueprint.
+
+- Agent-created temporary files must include `_暫存` at the end of the file name before the extension, for example `report_暫存.html`.
+- Files downloaded by an agent from the internet must start with the agent name and underscore, for example `codex_source.pdf` or `claude_reference.docx`.
+- Any file or folder that does not start with `AI名稱_` and does not end with `_暫存` is user data by default. It must not be deleted, moved, renamed, cleaned, or overwritten.
+- Deleting an unnamed file or folder is forbidden unless the user explicitly authorizes the exact path. The deletion must be recorded in the project handoff or working note with path, reason, time, and authorizing user instruction.
+- Agent-downloaded or agent-created project materials must be public, downloadable, traceable, and from a real source when used as source evidence, such as public company ESG documents, public financial reports, government deficiency publications, or named international regulations.
+- Project setup must include a cleanup rule: cleanup may only target files matching the agent prefix or `_暫存` suffix, and must list absolute paths before deletion.

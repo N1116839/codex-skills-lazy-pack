@@ -48,6 +48,17 @@ Use this workflow at the start of a project session. It is the reading counterpa
 
 開工回報要包含：目前專案狀態、上次未完成事項、需要避免的踩坑點、是否有未提交或未同步內容。
 
+## Global AI File Protection Rules
+
+At every 開工 / 專案繼續, re-read and restate any project-specific version of these rules before touching files:
+
+- Agent-created temporary files must include `_暫存` at the end of the file name before the extension.
+- Files downloaded by an agent from the internet must start with the agent name and underscore, such as `codex_檔案名稱`.
+- Files or folders without an `AI名稱_` prefix and without a `_暫存` suffix are user data by default.
+- User data must not be deleted, moved, renamed, cleaned, overwritten, or treated as disposable untracked files.
+- If the user explicitly authorizes deleting an unnamed file or folder, record the deleted path, reason, timestamp, and authorization source in the project handoff or working note.
+- Source evidence used by the agent must be public, downloadable, traceable, and from a real source unless the user provides private source files for the project.
+
 ## Do Not
 
 - Do not run `git pull` unless the user confirms.
