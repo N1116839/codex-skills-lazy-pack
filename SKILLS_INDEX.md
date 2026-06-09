@@ -1,11 +1,12 @@
 ﻿# Codex Skills Index
 
-更新時間：2026-06-08
+更新時間：2026-06-09
 
 ## 個人 skills
 
 | Skill | 類型 | GitHub 資料夾 | ZIP 懶人包 | 用途 |
 |---|---|---|---|---|
+| ai-dispatch | personal | `skills/ai-dispatch` | `packages/ai-dispatch.zip` | 用 OpenCode CLI ＋ NVIDIA 免費模型組成「AI 大軍」派工出工，省下昂貴 Token。當使用者說「派工」「派給士兵」「叫大軍做」「用 opencode 做」「headless 派工」「平行派工」「開七個視窗」「dispatch」時觸發。軍師（Claude/Codex）規劃審查，OpenCode 士兵出工，軍師只讀 result_*.md。含換機自動裝 opencode 與引導 NVIDIA 免費金鑰。 |
 | evidence-based-content | personal | `skills/evidence-based-content` | `packages/evidence-based-content.zip` | 資料正確性與可追溯標準。任何涉及 GDP 知識庫條目、內部教育訓練平台資料、論文報告時套用。當使用者說「校對資料庫」「整理 KB」「查文獻」「驗證資料」「逐筆核對」「資料要扎實」「有理有據」「不要推論」「來源在哪」時觸發。 |
 | gas-targeted-fix | personal | `skills/gas-targeted-fix` | `packages/gas-targeted-fix.zip` | 精準修正 Google Apps Script 與一般程式碼。Use when the user asks in Traditional Chinese to fix code, such as "幫我修正程式碼", "修正程式", "改程式", "幫我改 GAS", "修正 Apps Script", "Google Sheets 自動化壞了", or asks for minimal, non-refactoring code changes. Preserve original logic, naming, comments, structure, and style unless the user explicitly requests broader changes. |
 | html-evidence-training-builder | personal | `skills/html-evidence-training-builder` | `packages/html-evidence-training-builder.zip` | Build or revise traceable HTML training databases from user-provided SOP/WI/FR, deck, spreadsheet, and document sources; enforce source traceability, no invented company facts, Firestore sync, and image2/imagegen visual planning. |
@@ -46,6 +47,14 @@
 - 使用者資料不得刪除、移動、改名、覆蓋或當成未追蹤暫存資料清理。
 - 若使用者明確授權刪除未命名檔案或資料夾，必須紀錄路徑、原因、時間與授權來源。
 - AI 下載或建立後作為來源依據的資料，需公開、可下載、可追溯且來源真實；例如公司公開 ESG 公文、公開財報、政府常見缺失、國際法規條文。
+
+## 2026-06-09 新增 ai-dispatch（AI 派工大軍）
+
+- 新增 `ai-dispatch`：用 OpenCode CLI ＋ NVIDIA 免費模型（DeepSeek V4 Flash / Kimi 2.6 / Nemotron 3 Ultra）派工出工。軍師（Claude/Codex）規劃審查，士兵出工，軍師只讀 `result_*.md` 省 Token；支援平行 7 視窗。
+- 跨專案、跨機器可用；含換新機自動 bootstrap（裝 `opencode-ai`、引導 build.nvidia.com 申請免費金鑰）。
+- 觸發語以「派工」為主。預設行為：軍師自己用 Bash 跑 opencode、讀 result、只回報摘要。
+- 安全：NVIDIA 金鑰存 `~/.local/share/opencode/auth.json`，絕不進 repo；機敏資料（學生姓名、內部 SOP 原文）不派給免費雲端模型。已掃描確認 skill 不含祕密。
+- 已同步本機 `.codex` 與 `.claude`、Google Drive 備份、第二大腦 canonical、lazy-pack `skills/ai-dispatch` 與 `packages/ai-dispatch.zip`，並重建 `codex-personal-skills-bundle.zip`。
 
 ## 2026-06-08 全域檔案保護規範
 

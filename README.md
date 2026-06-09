@@ -11,10 +11,11 @@
 
 ## 包含什麼？
 
-### 個人 Skills（8 個）
+### 個人 Skills（9 個）
 
 | Skill | 說明 | 觸發詞 |
 |-------|------|--------|
+| `ai-dispatch` | OpenCode＋NVIDIA 免費模型派工大軍 | 派工、派給士兵、叫大軍做、平行派工、開七個視窗 |
 | `evidence-based-content` | 資料正確性與可追溯標準 | 校對資料庫、查文獻、驗證資料 |
 | `gas-targeted-fix` | 精準修正 Google Apps Script | 幫我修正程式碼、改程式、修正 GAS |
 | `html-evidence-training-builder` | 建立可追溯 HTML 訓練資料庫 | 建立訓練頁、KB、知識庫 |
@@ -112,7 +113,8 @@ Cursor / GitHub Copilot 不支援 SKILL.md 格式，需另行設定 `.cursorrule
 
 ```
 codex-skills-lazy-pack/
-├── skills/                    ← 8 個個人 skills
+├── skills/                    ← 9 個個人 skills
+│   ├── ai-dispatch/
 │   ├── evidence-based-content/
 │   ├── gas-targeted-fix/
 │   ├── html-evidence-training-builder/
