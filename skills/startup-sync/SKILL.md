@@ -61,9 +61,21 @@ At every 開工 / 專案繼續, re-read and restate any project-specific version
 - If the user explicitly authorizes deleting an unnamed file or folder, record the deleted path, reason, timestamp, and authorization source in the project handoff or working note.
 - Source evidence used by the agent must be public, downloadable, traceable, and from a real source unless the user provides private source files for the project.
 
+
+## Pitfall Memory Gate（2026-06-26）
+
+開工不是只讀到踩坑紀錄，而是要把踩坑轉成可執行檢查。若任務涉及既有專案、跨 agent 接手、使用者截圖、來源整理或「不要再犯」類回饋，開工回報必須列出：
+
+- 已查來源：本次已讀哪些專案檔、第二大腦頁面、來源索引或 Clippings。
+- 未查來源：哪些應查但尚未查，原因是什麼。
+- 本次要避免的踩坑：從 `踩坑紀錄.md` 與專案工作筆記抽出，不可只說「已注意」。
+- 每個踩坑的檢查方式：用 Trigger / Required check / Stop condition / Write-back 表達。
+- 停止條件：哪些資料未查完時必須停下來問使用者，不能自行猜測。
+
 ## Do Not
 
 - Do not run `git pull` unless the user confirms.
 - Do not edit the working note during 開工.
 - Do not create a missing working note during 開工; report that #07 initialization or manual setup is needed.
 - Do not paste the full working note unless the user explicitly asks.
+

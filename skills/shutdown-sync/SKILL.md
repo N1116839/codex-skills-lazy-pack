@@ -59,6 +59,16 @@ Use this workflow at the end of a project session. It is the writing counterpart
 - 專案自己的 Obsidian 接續紀錄或專案資料夾內接續紀錄
 
 若本輪有使用者明確回饋「不要再犯」、「幫我記住」、「踩坑」、「回饋給 AI」，必須寫入 `踩坑紀錄.md`，不能只在最後訊息口頭總結。
+## Pitfall Write-back Format（2026-06-26）
+
+收工寫踩坑時，不可只寫「已記錄」或心得。每個跨專案或會重犯的踩坑，都要整理成可執行檢查表：
+
+- Trigger：什麼情境會觸發這個踩坑。
+- Required check：動手或回答前必須查哪些來源、檔案、狀態或截圖。
+- Stop condition：缺少哪些查核時必須停下來問使用者，不能自行猜測。
+- Write-back：完成後要寫回哪些位置，例如專案 `工作筆記.md`、全域 `踩坑紀錄.md`、`知識庫/index.md`、`知識庫/log.md`、專案 `AGENTS.md`。
+
+若本輪是整理資料整理專案或修正 agent 工作流程，收工回報還要明列：哪些現有 skills 已檢查、哪些有出入、哪些已更新、是否已同步到 Google Drive 備份與 GitHub/lazy-pack。
 
 ## Global AI File Protection Checkout
 
@@ -83,3 +93,4 @@ At every 收工, check whether the session complied with these rules and write a
 - Do not run `git add .` blindly.
 - Do not commit `.claude/settings.local.json`, `.claude/worktrees/`, secrets, tokens, credentials, or generated dependency folders.
 - Do not run synchronization for a conversation with no substantive progress; report that there was nothing to sync.
+

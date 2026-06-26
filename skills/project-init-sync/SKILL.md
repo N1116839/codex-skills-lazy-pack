@@ -72,6 +72,17 @@ Use this structure for the Obsidian working note:
 - 尚無
 ```
 
+
+## Startup Gate and Pitfall Memory Rule（2026-06-26）
+
+初始化或更新專案藍圖時，`AGENTS.md` 必須包含可執行的開工閘門與踩坑記憶規則，不可只寫「先讀工作筆記」。最低要求：
+
+- Startup Gate：開工 / 專案繼續 / 接手其他 agent 時，必須讀本專案規則、README、Git 狀態、Obsidian 工作筆記、來源索引，以及第二大腦 AGENTS / CLAUDE / 踩坑紀錄 / 知識庫 log / 專案索引。
+- Startup Report：開工回報必須列出已查來源、未查來源、本次需要避免的踩坑點、目前專案狀態、下一步選項。
+- Pitfall Memory Rule：每個踩坑要整理成 Trigger / Required check / Stop condition / Write-back。
+- Stop condition：若踩坑、來源或專案工作筆記未查完，只能標為暫定或待查，不得把推測當正式結論。
+- Write-back：跨專案規則寫入第二大腦 `踩坑紀錄.md`；可復用知識同步更新 `知識庫/index.md` 與 `知識庫/log.md`；單一專案進度寫入專案工作筆記。
+
 ## Safety Rules
 
 - Never commit `.claude/`, secrets, API keys, tokens, credentials, or local permission files.
@@ -90,3 +101,4 @@ Project initialization must write these rules into the new project's `AGENTS.md`
 - Deleting an unnamed file or folder is forbidden unless the user explicitly authorizes the exact path. The deletion must be recorded in the project handoff or working note with path, reason, time, and authorizing user instruction.
 - Agent-downloaded or agent-created project materials must be public, downloadable, traceable, and from a real source when used as source evidence, such as public company ESG documents, public financial reports, government deficiency publications, or named international regulations.
 - Project setup must include a cleanup rule: cleanup may only target files matching the agent prefix or `_暫存` suffix, and must list absolute paths before deletion.
+
