@@ -1,4 +1,4 @@
-﻿# Codex Skills Index
+# Codex Skills Index
 
 更新時間：2026-06-09
 
@@ -15,6 +15,8 @@
 | shutdown-sync | personal | `skills/shutdown-sync` | `packages/shutdown-sync.zip` | Shutdown synchronization helper from lazy-pack #07. Triggered by 收工/先收工/結束工作/換電腦 requests; updates Obsidian working note, records pitfalls, commits, and pushes relevant project changes. |
 | skills-sync | personal | `skills/skills-sync` | `packages/skills-sync.zip` | 同步、備份、打包與上傳 Codex skills。Use when the user says 更新skills、同步skills、備份skills、上傳skills到GitHub、建立skills懶人包、換電腦恢復skills、把skills放入第二大腦，或要求 Codex 同步本機 skills、第二大腦、Google Drive 懶人包與 GitHub skills repo. |
 | startup-sync | personal | `skills/startup-sync` | `packages/startup-sync.zip` | Startup continuation helper from lazy-pack #07. Triggered by 開工/開始工作/上次做到哪/繼續專案 requests; reads Obsidian working note, checks Git status, and recommends next steps without modifying notes. |
+
+| research-content-organization | personal | `skills/research-content-organization` | `packages/research-content-organization.zip` | 讀取實際內容後分類研究資料、保存原始證據、標示完成／未完成／淘汰路徑；觸發於「資料整理」「整理資料」「資料分類」「清理暫存檔」。 |
 
 ## 系統 skills 索引
 

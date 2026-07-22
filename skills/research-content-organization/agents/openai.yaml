@@ -1,0 +1,4 @@
+interface:
+  display_name: "研究資料整理"
+  short_description: "以內容分類、保存證據並建立可追溯整理"
+  default_prompt: "Use $research-content-organization to organize these project materials by topic and evidence status."

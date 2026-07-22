@@ -24,6 +24,7 @@
 | `shutdown-sync` | 收工三方同步 | 收工、先收工、結束工作、換電腦 |
 | `startup-sync` | 開工接續上次工作 | 開工、上次做到哪、接續工作 |
 | `skills-sync` | 備份與同步 skills | 更新 skills、同步 skills、備份 skills |
+| `research-content-organization` | 內容導向研究資料整理 | 資料整理、整理資料、資料分類、清理暫存檔 |
 
 > 💡 Codex 使用者：skills 安裝在 `%USERPROFILE%\.codex\skills`，觸發詞與 Claude 版共用。
 
