@@ -11,7 +11,7 @@
 
 ## 包含什麼？
 
-### 個人 Skills（9 個）
+### 個人 Skills（11 個）
 
 | Skill | 說明 | 觸發詞 |
 |-------|------|--------|
@@ -24,6 +24,7 @@
 | `shutdown-sync` | 收工三方同步 | 收工、先收工、結束工作、換電腦 |
 | `startup-sync` | 開工接續上次工作 | 開工、上次做到哪、接續工作 |
 | `skills-sync` | 備份與同步 skills | 更新 skills、同步 skills、備份 skills |
+| `rdq` | 四象限需求訪談與規格卡 | 用 RDQ、先訪談我、幫我釐清需求 |
 | `research-content-organization` | 內容導向研究資料整理 | 資料整理、整理資料、資料分類、清理暫存檔 |
 
 > 💡 Codex 使用者：skills 安裝在 `%USERPROFILE%\.codex\skills`，觸發詞與 Claude 版共用。
@@ -141,6 +142,7 @@ codex-skills-lazy-pack/
 | 日期 | 更新內容 |
 |------|---------|
 | 2026-06-08 | 補強示範檔規則：建立暫存/下載示範檔時，未指定內容也必須先用合規檔名，不可建立 `暫存.txt` / `下載.txt` 後再反問內容 |
+| 2026-07-28 | 新增 RDQ 需求探索技能；安裝腳本同步支援 Codex 與 Claude Code。 |
 | 2026-06-08 | 補強換電腦規則：`暫存.txt`、`下載.txt` 明確列為違規命名；開工時應直接套用全域規範，不得反問是哪條規定 |
 | 2026-06-08 | 新增全域 AI 檔案保護規範：暫存檔 `_暫存`、下載檔 `AI名稱_`、未命名檔案視為使用者資料不得刪除；更新 project-init/startup/shutdown/skills-sync 與 zip |
 | 2026-05-29 | 改為 public；加入跨電腦 MCP 安裝腳本、SessionEnd hook、macOS/Linux 支援 |

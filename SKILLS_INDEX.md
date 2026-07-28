@@ -1,6 +1,6 @@
 # Codex Skills Index
 
-更新時間：2026-06-09
+更新時間：2026-07-28
 
 ## 個人 skills
 
@@ -15,6 +15,7 @@
 | shutdown-sync | personal | `skills/shutdown-sync` | `packages/shutdown-sync.zip` | Shutdown synchronization helper from lazy-pack #07. Triggered by 收工/先收工/結束工作/換電腦 requests; updates Obsidian working note, records pitfalls, commits, and pushes relevant project changes. |
 | skills-sync | personal | `skills/skills-sync` | `packages/skills-sync.zip` | 同步、備份、打包與上傳 Codex skills。Use when the user says 更新skills、同步skills、備份skills、上傳skills到GitHub、建立skills懶人包、換電腦恢復skills、把skills放入第二大腦，或要求 Codex 同步本機 skills、第二大腦、Google Drive 懶人包與 GitHub skills repo. |
 | startup-sync | personal | `skills/startup-sync` | `packages/startup-sync.zip` | Startup continuation helper from lazy-pack #07. Triggered by 開工/開始工作/上次做到哪/繼續專案 requests; reads Obsidian working note, checks Git status, and recommends next steps without modifying notes. |
+| rdq | personal | `skills/rdq` | `packages/rdq.zip` | RDQ 四象限需求探索：在中大型任務前釐清需求、風險與驗收，產出確認後才執行。觸發於「用 RDQ」、「先訪談我」、「幫我釐清需求」。 |
 
 | research-content-organization | personal | `skills/research-content-organization` | `packages/research-content-organization.zip` | 讀取實際內容後分類研究資料、保存原始證據、標示完成／未完成／淘汰路徑；觸發於「資料整理」「整理資料」「資料分類」「清理暫存檔」。 |
 
@@ -37,6 +38,12 @@
 5. G:\我的雲端硬碟\2026codex\01.5-Codex必裝Skills與Plugins.md。
 
 .system skills 只做索引，不預設打包。
+
+## 2026-07-28 新增 RDQ
+
+- 新增 `rdq`，來源為 `mathruffian-dot/rdq-skill-chatgpt-app`（MIT）。
+- 會同步至本機 Codex、Google Drive 備份、第二大腦 canonical、lazy-pack skills 與 ZIP；整包 ZIP 同步重建。
+- 安裝腳本已改為同時安裝到 Codex 與 Claude Code；OpenCode、AntiGravity 可讀取同一份 `SKILL.md` 並依其環境放入 skills 目錄。
 
 ## 全域 AI 檔案保護規範
 
