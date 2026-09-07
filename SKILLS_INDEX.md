@@ -1,6 +1,6 @@
 # Codex Skills Index
 
-更新時間：2026-07-28
+更新時間：2026-09-07
 
 ## 個人 skills
 
@@ -18,6 +18,7 @@
 | rdq | personal | `skills/rdq` | `packages/rdq.zip` | RDQ 四象限需求探索：在中大型任務前釐清需求、風險與驗收，產出確認後才執行。觸發於「用 RDQ」、「先訪談我」、「幫我釐清需求」。 |
 
 | research-content-organization | personal | `skills/research-content-organization` | `packages/research-content-organization.zip` | 讀取實際內容後分類研究資料、保存原始證據、標示完成／未完成／淘汰路徑；觸發於「資料整理」「整理資料」「資料分類」「清理暫存檔」。 |
+| speak-human-tw | personal | `skills/speak-human-tw` | `packages/speak-human-tw.zip` | 繁體中文去 AI 味校對：保留事實、校正台灣用語與標點；觸發於「去 AI 味」「說人話」「改自然一點」。 |
 
 ## 系統 skills 索引
 
@@ -116,3 +117,4 @@
 - 新增 `html-evidence-training-builder`：使用者提供資料製作 HTML 資料庫/教材時，先做來源盤點、可追溯資料庫索引、Firestore 同步，再做視覺化互動與 image2/imagegen 規劃。
 - 已同步本機、Google Drive skills 備份、第二大腦 canonical、lazy-pack repo。
 - 已新增 `html-evidence-training-builder.zip` 並重建 `codex-personal-skills-bundle.zip`。
+

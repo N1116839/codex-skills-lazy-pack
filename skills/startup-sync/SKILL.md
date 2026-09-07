@@ -61,7 +61,26 @@ At every 開工 / 專案繼續, re-read and restate any project-specific version
 - If the user explicitly authorizes deleting an unnamed file or folder, record the deleted path, reason, timestamp, and authorization source in the project handoff or working note.
 - Source evidence used by the agent must be public, downloadable, traceable, and from a real source unless the user provides private source files for the project.
 
+## Do Not
 
+- Do not run `git pull` unless the user confirms.
+- Do not edit the working note during 開工.
+- Do not create a missing working note during 開工; report that #07 initialization or manual setup is needed.
+- Do not paste the full working note unless the user explicitly asks.
+
+## Obsidian 專案駕駛艙硬性閘門（2026-06-22）
+
+開工 / 專案繼續不能只讀專案工作筆記。依第二大腦影片式工作流，必須先完成下列 checklist，少一項就不可宣稱開工完成，也不可進入正式 SOP 或實作：
+
+- 已讀第二大腦 `AGENTS.md` 與 `CLAUDE.md`。
+- 已讀全域 `踩坑紀錄.md`。
+- 已讀 `知識庫/log.md`。
+- 已讀 `專案/專案索引.md`，確認目標專案駕駛艙位置。
+- 已讀目標專案的總覽與工作筆記，例如 `POE2/POE2總覽.md`、`POE2/工作筆記.md`。
+- 已檢查 git status（若目前資料夾是 Git repo）。
+- 開工回報明列：已查來源、未查來源、本次需要避免的踩坑點、目前專案狀態、下一步選項。
+
+若使用者接著問專案專業問題（例如 POE2 做裝），回答前還要讀該專案的來源索引與資料庫；未查完時只能標為「暫定」或「不能正確回答」。
 ## Pitfall Memory Gate（2026-06-26）
 
 開工不是只讀到踩坑紀錄，而是要把踩坑轉成可執行檢查。若任務涉及既有專案、跨 agent 接手、使用者截圖、來源整理或「不要再犯」類回饋，開工回報必須列出：
@@ -72,10 +91,13 @@ At every 開工 / 專案繼續, re-read and restate any project-specific version
 - 每個踩坑的檢查方式：用 Trigger / Required check / Stop condition / Write-back 表達。
 - 停止條件：哪些資料未查完時必須停下來問使用者，不能自行猜測。
 
-## Do Not
 
-- Do not run `git pull` unless the user confirms.
-- Do not edit the working note during 開工.
-- Do not create a missing working note during 開工; report that #07 initialization or manual setup is needed.
-- Do not paste the full working note unless the user explicitly asks.
+## 重複踩坑、目標變更與主題整併 Gate（2026-09-07）
 
+開工前，若是大型專案或本輪目標有更新，先完成：
+
+1. 以唯一 Pitfall ID 對照專案權威、工作筆記與全域 `踩坑紀錄.md`，讀取其聚合次數與 Required check；不得把同根因的日期日誌當成多條現行規則。
+2. 比對新目標與現行入口、歷史決策、下一步及來源索引。發現衝突、歧義或會誤導新目標的舊摘要時，只能標為待封存／待更新；未確認取代位置前，不得按舊計畫執行。
+3. 列出本輪要放入的功能主題與既有權威檔。HP／MP、掉落、玩家 PK、敵國 PK 等戰鬥責任預設屬同一戰鬥主題；若要拆分，先說明責任邊界與雙向回鏈。
+
+開工回報必須說明命中的 Pitfall ID／次數、舊目標是否已封存，以及本輪主題落點。資料不足時停止宣稱已完成防錯或已完成目標轉換。

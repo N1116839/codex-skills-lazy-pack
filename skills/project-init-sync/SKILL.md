@@ -102,3 +102,24 @@ Project initialization must write these rules into the new project's `AGENTS.md`
 - Agent-downloaded or agent-created project materials must be public, downloadable, traceable, and from a real source when used as source evidence, such as public company ESG documents, public financial reports, government deficiency publications, or named international regulations.
 - Project setup must include a cleanup rule: cleanup may only target files matching the agent prefix or `_暫存` suffix, and must list absolute paths before deletion.
 
+## Obsidian 專案駕駛艙初始化（2026-06-22）
+
+建立新專案時，除了 `AGENTS.md` / `README.md` / Git，也必須依影片式第二大腦建立 Obsidian 專案駕駛艙：
+
+- 在第二大腦中建立專案資料夾，或使用既有專案資料夾。
+- 建立一個主要駕駛艙：`<專案名>總覽.md` 或 `專案工作流程.md`。
+- 建立 `工作筆記.md`：只記進度、決策、踩坑、收工紀錄。
+- 建立 `來源索引.md`：只記原始來源、影片、網站、檔案、截圖，不改動 `Clippings/`。
+- 更新 `專案/專案索引.md`，把新專案駕駛艙加入總入口。
+- 專案藍圖 `AGENTS.md` 只寫讀取指引，不塞每日細節，避免和 Obsidian 雙寫飄移。
+
+
+## 大型專案權威、目標封存與主題資料規則（2026-09-07）
+
+初始化或更新專案藍圖時，`AGENTS.md`、總覽與工作筆記必須約定：
+
+- 每個同根因踩坑使用唯一 Pitfall ID。第 1、2 次保留標準卡片；第 3 次合併為一行並升級到專案權威、重新作為專案權威第 1 次；累計第 10 次才升級到第二大腦全域 `踩坑紀錄.md`，合併為一行並作為全域第 1 次。後續只更新該權威條目，不新增重複規則。
+- 專案目標更新時，必須審閱現行與歷史入口；衝突、模糊或誤導的新舊資訊要封存並標明替代關係，不能刪除原始證據，也不能留在活躍下一步。
+- 建立主題索引與母題入口。相依能力要共置或明確回鏈；例如戰鬥系統統籌 HP／MP、掉落、玩家 PK、敵國 PK。只有責任、生命週期或讀者明確不同時才拆檔。
+
+工作筆記模板應保留 Pitfall ID、聚合次數、權威位置、歷史證據與封存連結欄位；來源索引與 Clippings 保留原始資料，不用它們承擔現行規則。

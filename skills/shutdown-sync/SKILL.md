@@ -94,3 +94,22 @@ At every 收工, check whether the session complied with these rules and write a
 - Do not commit `.claude/settings.local.json`, `.claude/worktrees/`, secrets, tokens, credentials, or generated dependency folders.
 - Do not run synchronization for a conversation with no substantive progress; report that there was nothing to sync.
 
+## Obsidian 每日筆記與來源整理（2026-06-22）
+
+收工時除了更新專案工作筆記，也要依影片式第二大腦流程判斷是否更新每日筆記：
+
+- 每日筆記位置：`G:\我的雲端硬碟\我的第二大腦\每日筆記\YYYY-MM-DD.md`。
+- 每日筆記只放當天來源、問答/工作摘要、決策、踩坑、待查，並連回專案駕駛艙；不要把專案完整內容雙寫到每日筆記。
+- 專案進度、決策、實際觀察、踩坑主體仍寫入該專案 `工作筆記.md` 或 `專案工作流程.md`。
+- 原始來源完整保留在 `Clippings/`、專案 `assets/` 或來源檔，不改動原始剪藏。
+- 若新增專案、來源索引或可復用 SOP，更新 `專案/專案索引.md`、`知識庫/index.md`、`知識庫/log.md`。
+- 收工回報要列出：更新了哪些 Obsidian 筆記、哪些來源已保留、哪些待查。
+
+
+## 重複踩坑升級、目標封存與主題回寫（2026-09-07）
+
+收工發現踩坑或收到目標更新時，先找同根因 Pitfall ID，不得直接新增一則日期日誌。第 1、2 次照既有格式記錄；第 3 次合併前三次為一行可執行規則，升級到專案權威並重設專案權威計數為 1；同根因累計第 10 次才合併成第二大腦全域規範的一行，重設全域計數為 1。每次後續發生只更新該權威行的累計次數、最後日期、攔截結果與證據回鏈。
+
+若本輪改變專案目標，必須把衝突、模糊或誤導的舊計畫封存而非刪除：保留原文，寫明取代它的新目標、日期、理由和現行權威連結，並從活躍入口移除。原始來源與歷史證據不得改動。
+
+收工前檢查本輪新增資料是否已歸入既有主題。相依功能要有一個可發現的母題入口；不要把戰鬥的 HP／MP、掉落、玩家 PK、敵國 PK 拆成彼此無回鏈的零散檔案。若因責任邊界確需拆分，更新母題索引與雙向連結。
