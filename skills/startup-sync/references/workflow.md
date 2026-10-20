@@ -50,7 +50,7 @@ python <startup-sync>/scripts/install_hooks.py
 ```
 安裝器只合併標記為 Project workflow v1 的三個事件，不改模型／MCP／資料庫。原 hooks.json 先備份在 Codex home/backups；重跑不重複。可用同腳本 `--uninstall` 移除本工具事件，保留其他 hooks。換機須重新執行以刷新 Python／腳本路徑。
 
-**產品要求使用者在 `/hooks` 審閱並信任確切定義。安裝器不自動授予信任，也不能用跳過信任參數假裝啟用。**依實際介面提示操作；未信任／不支援時列為人工重讀模式。
+**產品要求使用者在 Codex CLI 的 `/hooks` 審閱並信任確切定義。安裝器不自動授予信任，也不能用跳過信任參數假裝啟用。**確認CLI支援Hooks；不要假設桌面輸入框有同名指令。依實際介面提示操作；未信任／不支援時列為人工重讀模式。
 
 - SessionStart（包括 compact）及 UserPromptSubmit 帶入短現況；Stop 缺本輪 receipt 時最多要求一次補記，避免無限迴圈。
 - 若主機沒有提供 turn_id，照樣恢復狀態，但明示不能強制核對該輪 receipt，不捏造真實 turn。

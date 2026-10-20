@@ -61,7 +61,7 @@ def main():
         if json.loads(read(path)) != new:
             raise RuntimeError('Hook read-back mismatch.')
     print(json.dumps({'changed': changed, 'written': changed and not args.dry_run, 'path': str(path),
-                      'backup': str(backup) if backup else None, 'trust': 'Human review required in Codex /hooks; not granted by this installer.'}, ensure_ascii=False))
+                      'backup': str(backup) if backup else None, 'trust': 'Human review required in Codex CLI /hooks; not granted by this installer.'}, ensure_ascii=False))
 
 
 if __name__ == '__main__':

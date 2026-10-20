@@ -48,7 +48,7 @@ python <startup-sync>/scripts/install_hooks.py
 
 安裝器合併 Codex 的 SessionStart（含 compact）、UserPromptSubmit 與 Stop，保留其他 Hook，不修改模型、MCP 或資料庫。換機要重新安裝 Hook，以刷新 Python 與腳本路徑；可用 `--uninstall` 移除本工具事件。
 
-**Codex 要求使用者在 `/hooks` 審閱並信任確切定義，安裝腳本不代為授予信任。** 尚未信任、主機不支援或未實測觸發時，以人工重讀模式運作。配置成功不等於已啟用；程式回傳的 receipt 也不證明內容理解正確。主機未提供 turn_id 時會明示無法強制本輪 receipt。實際自動壓縮效果須在使用者環境另驗。
+**Codex 要求使用者在 Codex CLI 的 `/hooks` 審閱並信任確切定義，安裝腳本不代為授予信任。** 桌面介面是否提供同名入口須依實際版本確認，不假設桌面輸入框支援此指令。使用支援 Hooks 的 CLI；若系統PATH中的CLI較舊，應改用相容版本。尚未信任、主機不支援或未實測觸發時，以人工重讀模式運作。配置成功不等於已啟用；程式回傳的 receipt 也不證明內容理解正確。主機未提供 turn_id 時會明示無法強制本輪 receipt。實際自動壓縮效果須在使用者環境另驗。
 
 產品來源：[Codex Hooks](https://learn.chatgpt.com/docs/hooks)。本次以 Codex 0.160.1 的功能與 hooks/list 驗證格式；行為測試含模擬壓縮事件，不冒稱已觀察真實壓縮。
 
