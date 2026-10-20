@@ -1,6 +1,10 @@
 # Codex Skills Index
 
-更新時間：2026-09-07
+更新時間：2026-10-20
+
+## 2026-10-20 接續技能修復
+
+三技能一起安裝，共用startup-sync/references/workflow.md。單一現況、決策即存、3／5去重升級；Codex Hook另行配置並由使用者信任。私人狀態不打包。現行安裝與驗證見README；下方日期紀錄為歷史，不再採用舊3／10或權威次數重設。
 
 ## 個人 skills
 
@@ -11,10 +15,10 @@
 | gas-targeted-fix | personal | `skills/gas-targeted-fix` | `packages/gas-targeted-fix.zip` | 精準修正 Google Apps Script 與一般程式碼。Use when the user asks in Traditional Chinese to fix code, such as "幫我修正程式碼", "修正程式", "改程式", "幫我改 GAS", "修正 Apps Script", "Google Sheets 自動化壞了", or asks for minimal, non-refactoring code changes. Preserve original logic, naming, comments, structure, and style unless the user explicitly requests broader changes. |
 | html-evidence-training-builder | personal | `skills/html-evidence-training-builder` | `packages/html-evidence-training-builder.zip` | Build or revise traceable HTML training databases from user-provided SOP/WI/FR, deck, spreadsheet, and document sources; enforce source traceability, no invented company facts, Firestore sync, and image2/imagegen visual planning. |
 | html-training-deck | personal | `skills/html-training-deck` | `packages/html-training-deck.zip` | 建立或修訂 HTML 內部教育訓練簡報、內部稽核教材、SOP 學習平台、稽查重點頁、Q&A 學習頁、互動式年度行事曆與 image2 視覺化教材。Use when the user asks for HTML簡報、內部教育訓練、內部稽核、稽查重點、SOP學習、Q&A、年度資料收件行事曆、部門訓練、互動式教材、GitHub Pages 發佈前檢查。 |
-| project-init-sync | personal | `skills/project-init-sync` | `packages/project-init-sync.zip` | Initialize the classroom tools working mode from lazy-pack #07, including the Google Drive project folder, project blueprint, Git/GitHub, Obsidian working note, and startup/shutdown workflow references. |
-| shutdown-sync | personal | `skills/shutdown-sync` | `packages/shutdown-sync.zip` | Shutdown synchronization helper from lazy-pack #07. Triggered by 收工/先收工/結束工作/換電腦 requests; updates Obsidian working note, records pitfalls, commits, and pushes relevant project changes. |
+| project-init-sync | personal | `skills/project-init-sync` | `packages/project-init-sync.zip` | 依專案需要初始化唯一現況入口、規則與來源索引；保留已有Firebase／資料庫配置。 |
+| shutdown-sync | personal | `skills/shutdown-sync` | `packages/shutdown-sync.zip` | 收工整理與事件去重，同專案3次升專案重要、5次升全域，累計不歸零；依既有授權同步。 |
 | skills-sync | personal | `skills/skills-sync` | `packages/skills-sync.zip` | 同步、備份、打包與上傳 Codex skills。Use when the user says 更新skills、同步skills、備份skills、上傳skills到GitHub、建立skills懶人包、換電腦恢復skills、把skills放入第二大腦，或要求 Codex 同步本機 skills、第二大腦、Google Drive 懶人包與 GitHub skills repo. |
-| startup-sync | personal | `skills/startup-sync` | `packages/startup-sync.zip` | Startup continuation helper from lazy-pack #07. Triggered by 開工/開始工作/上次做到哪/繼續專案 requests; reads Obsidian working note, checks Git status, and recommends next steps without modifying notes. |
+| startup-sync | personal | `skills/startup-sync` | `packages/startup-sync.zip` | 開工恢復、工作中保存、交付前核對；包含選用Codex Hook、來源版本檢查與行為測試。 |
 | rdq | personal | `skills/rdq` | `packages/rdq.zip` | RDQ 四象限需求探索：在中大型任務前釐清需求、風險與驗收，產出確認後才執行。觸發於「用 RDQ」、「先訪談我」、「幫我釐清需求」。 |
 
 | research-content-organization | personal | `skills/research-content-organization` | `packages/research-content-organization.zip` | 讀取實際內容後分類研究資料、保存原始證據、標示完成／未完成／淘汰路徑；觸發於「資料整理」「整理資料」「資料分類」「清理暫存檔」。 |

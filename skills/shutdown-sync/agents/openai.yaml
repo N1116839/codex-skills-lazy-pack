@@ -1,3 +1,4 @@
-display_name: Shutdown Sync
-short_description: Review changes and wrap up the project session.
-default_prompt: 收尾同步
+interface:
+  display_name: "收工與交接"
+  short_description: "結算獨立踩坑事件、依三五次升級去重，保存現況並按授權同步"
+  default_prompt: "使用 $shutdown-sync 核對本輪進度、踩坑及交接，完成已授權的同步。"

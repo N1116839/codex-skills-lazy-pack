@@ -1,3 +1,4 @@
-display_name: Startup Sync
-short_description: Load project context and check workspace state at session start.
-default_prompt: 啟動同步
+interface:
+  display_name: "開工與工作中接續"
+  short_description: "恢復專案現況與適用規則，在決策變更及交付前維持正確接續狀態"
+  default_prompt: "使用 $startup-sync 核對現況並接續已授權的工作。"

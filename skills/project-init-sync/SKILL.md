@@ -1,125 +1,21 @@
 ---
 name: project-init-sync
-description: Initialize the classroom tools working mode from lazy-pack #07, including the Google Drive project folder, project blueprint, Git/GitHub, Obsidian working note, and startup/shutdown workflow references. Use when the user says 初始化班級工具工作模式, 專案初始化, project init sync, 老師建專案模式, or asks Codex to set up a new classroom tools project from the #07 workflow.
+description: 初始化或修復專案的接續環境、權威入口與第二大腦工作筆記。Use for 專案初始化、project init sync、建立開工收工流程；依實際專案配置工具。
 ---
 
-# Project Init Sync
+# 專案初始化
 
-Use this workflow to initialize the #07 classroom tools working mode. This skill creates the environment; it does not preserve session notes unless the user also asks for 收工.
+使用者指示與既有專案架構優先。初始化建立可接續的環境，不替使用者選研究方向或擴大公開範圍。
 
-## #07 Initialization Workflow
+三技能共用 [接續協定](../startup-sync/references/workflow.md)。先讀協定，確認主線、現行工作、規則及事件各自的唯一權威；不要複製多套完整規格。若共用技能缺失，先報缺失並依現有權威繼續可完成部分，不假稱自動機制已就緒。
 
-1. Check environment:
-   - OS.
-   - `git --version`.
-   - `gh auth status`.
-   - `node --version`.
-   - Ask for the Obsidian vault path if not already known.
-   - Verify the vault path exists.
-2. Ask for the classroom tools root folder name and cloud-drive parent folder. Default parent: `G:\我的雲端硬碟`.
-3. Create the root folder without overwriting existing user files.
-4. Create or update `AGENTS.md` as the Codex project blueprint. Include:
-   - Project name and local path.
-   - GitHub repo URL or intended repo name.
-   - Firebase project ID when known.
-   - Obsidian working note path: `<vault path>\<project folder>\工作筆記.md`.
-   - Working rhythm: 開工 reads, 收工 writes.
-   - Student data privacy rules.
-5. Create or update `README.md` with the current setup summary and tool list.
-6. Create or update `.gitignore`. It must exclude:
-   - `desktop.ini`, `*.tmp`, `~$*`.
-   - `.env`, `*.key`, `credentials.*`.
-   - `.claude/`.
-   - `node_modules/`.
-7. Preserve Firebase files if they already exist: `.firebaserc`, `firebase.json`, and `firestore.rules`.
-8. Initialize Git if the folder is not already a repository.
-9. Apply `git config windows.appendAtomically false` for Windows folders that may sync through Drive or OneDrive.
-10. Create the Obsidian project folder and `工作筆記.md` after the vault path is confirmed.
-11. Create a first `工作筆記.md` with:
-    - `上次做到哪`.
-    - `工具清單`.
-    - `最近更動紀錄`.
-    - `踩坑筆記`.
-12. Create GitHub remote or enable GitHub Pages only when GitHub CLI authentication works and the user has confirmed repo visibility. Lazy-pack #07 assumes a public repo for free GitHub Pages.
-13. Commit and push only the intended initialization files after checking status and confirming the file list.
+1. 讀最近的 AGENTS／README、既有需求、Git 根目錄與狀態，以及指定 vault 的 AGENTS、CLAUDE、專案索引及相關現行規則。優先沿用已知路徑；未知且必要時才詢問。此環境預設 vault 為 `G:\我的雲端硬碟\我的第二大腦`，換機以專案設定為準。
+2. 檢查實際需要的工具。**Firebase、其他資料庫、GitHub Pages、Node 等依專案需求選用；保留既有設定，允許後續新增。**不預設教學用途，也不移除現有 Firebase 或禁止使用資料庫。
+3. 沿用既有需求／主線文件、工作筆記現行區、來源索引與規則權威；缺少才建立。AGENTS／CLAUDE 是短入口及邊界，README 是入口導航，歷史移至既有交接，不在每份文件複製進度。更新時先保存必要歷史並驗證回鏈。
+4. 現行區至少保存：當前任務、主線指向、指定底稿、最新決策、完成／待辦、失效路徑、適用規則與版本。把「工作中決策即保存、交付前重核」寫入入口；無變更不追加日誌。
+5. 若選用自動接續，依協定建立 `.project-workflow.json`，執行 `validate`；安裝 Hook 前核對現有來源，保留其他 Hook。需通過產品信任流程與實際觸發測試才稱啟用；讀檔成功不等於模型已理解。
+6. 既有外層 Git 直接沿用，不另建巢狀 repo。沒有 Git 時依任務需要建立；不自行建立公開遠端、部署、提交或推送。使用者已授權時完成指定範圍，不重問。忽略密鑰、憑證、執行快取、依賴與不應公開的原始資料。
+7. 更新 vault 專案總覽／工作筆記／來源索引及專案索引的必要回鏈；通用回饋回寫既有全域卡，知識庫 index／log 只留索引，不再複製規則。
+8. 驗證入口可解析、重跑不覆寫使用者資料、新執行者能找回目前工作；分開報告環境建置、Hook 已配置／已信任／已觸發、未驗項目。
 
-## Required Working Note Template
-
-Use this structure for the Obsidian working note:
-
-```markdown
-# <project-name> 工作筆記
-
-> 進度日誌。專案藍圖請看 GDrive 端的 `AGENTS.md` 或 `README.md`。
-
-## 上次做到哪
-
-**最後動作：** 初始化班級工具總專案
-**所在 repo：** <repo-url-or-pending>
-
-## 工具清單
-
-- 尚無
-
-## 最近更動紀錄
-
-| 日期 | 變更摘要 | GDrive | Obsidian | GitHub |
-|------|----------|--------|----------|--------|
-| <today> | 初始化班級工具總專案 | OK | OK | 待確認 |
-
-## 踩坑筆記
-
-- 尚無
-```
-
-
-## Startup Gate and Pitfall Memory Rule（2026-06-26）
-
-初始化或更新專案藍圖時，`AGENTS.md` 必須包含可執行的開工閘門與踩坑記憶規則，不可只寫「先讀工作筆記」。最低要求：
-
-- Startup Gate：開工 / 專案繼續 / 接手其他 agent 時，必須讀本專案規則、README、Git 狀態、Obsidian 工作筆記、來源索引，以及第二大腦 AGENTS / CLAUDE / 踩坑紀錄 / 知識庫 log / 專案索引。
-- Startup Report：開工回報必須列出已查來源、未查來源、本次需要避免的踩坑點、目前專案狀態、下一步選項。
-- Pitfall Memory Rule：每個踩坑要整理成 Trigger / Required check / Stop condition / Write-back。
-- Stop condition：若踩坑、來源或專案工作筆記未查完，只能標為暫定或待查，不得把推測當正式結論。
-- Write-back：跨專案規則寫入第二大腦 `踩坑紀錄.md`；可復用知識同步更新 `知識庫/index.md` 與 `知識庫/log.md`；單一專案進度寫入專案工作筆記。
-
-## Safety Rules
-
-- Never commit `.claude/`, secrets, API keys, tokens, credentials, or local permission files.
-- Do not run `git add .` blindly. Stage only intended files.
-- If GitHub authentication or Pages setup is blocked, still finish local and Obsidian setup, then report the blocker.
-
-## Global AI File Protection Rules
-
-Project initialization must write these rules into the new project's `AGENTS.md` or equivalent project blueprint.
-
-- Agent-created temporary files must include `_暫存` at the end of the file name before the extension, for example `report_暫存.html`.
-- Files downloaded by an agent from the internet must start with the agent name and underscore, for example `codex_source.pdf` or `claude_reference.docx`.
-- Forbidden examples: `暫存.txt`, `下載.txt`, `test.txt`, `temp.docx`. These lack the required `_暫存` suffix or `AI名稱_` prefix and must be treated as user data once created.
-- If the user asks to create a temporary file or a download-file example without specifying content, create a minimal compliant demonstration file. Do not create `暫存.txt` or `下載.txt`, and do not use "ask for content first" to bypass the naming rule.
-- Any file or folder that does not start with `AI名稱_` and does not end with `_暫存` is user data by default. It must not be deleted, moved, renamed, cleaned, or overwritten.
-- Deleting an unnamed file or folder is forbidden unless the user explicitly authorizes the exact path. The deletion must be recorded in the project handoff or working note with path, reason, time, and authorizing user instruction.
-- Agent-downloaded or agent-created project materials must be public, downloadable, traceable, and from a real source when used as source evidence, such as public company ESG documents, public financial reports, government deficiency publications, or named international regulations.
-- Project setup must include a cleanup rule: cleanup may only target files matching the agent prefix or `_暫存` suffix, and must list absolute paths before deletion.
-
-## Obsidian 專案駕駛艙初始化（2026-06-22）
-
-建立新專案時，除了 `AGENTS.md` / `README.md` / Git，也必須依影片式第二大腦建立 Obsidian 專案駕駛艙：
-
-- 在第二大腦中建立專案資料夾，或使用既有專案資料夾。
-- 建立一個主要駕駛艙：`<專案名>總覽.md` 或 `專案工作流程.md`。
-- 建立 `工作筆記.md`：只記進度、決策、踩坑、收工紀錄。
-- 建立 `來源索引.md`：只記原始來源、影片、網站、檔案、截圖，不改動 `Clippings/`。
-- 更新 `專案/專案索引.md`，把新專案駕駛艙加入總入口。
-- 專案藍圖 `AGENTS.md` 只寫讀取指引，不塞每日細節，避免和 Obsidian 雙寫飄移。
-
-
-## 大型專案權威、目標封存與主題資料規則（2026-09-07）
-
-初始化或更新專案藍圖時，`AGENTS.md`、總覽與工作筆記必須約定：
-
-- 每個同根因踩坑使用唯一 Pitfall ID。第 1、2 次保留標準卡片；第 3 次合併為一行並升級到專案權威、重新作為專案權威第 1 次；累計第 10 次才升級到第二大腦全域 `踩坑紀錄.md`，合併為一行並作為全域第 1 次。後續只更新該權威條目，不新增重複規則。
-- 專案目標更新時，必須審閱現行與歷史入口；衝突、模糊或誤導的新舊資訊要封存並標明替代關係，不能刪除原始證據，也不能留在活躍下一步。
-- 建立主題索引與母題入口。相依能力要共置或明確回鏈；例如戰鬥系統統籌 HP／MP、掉落、玩家 PK、敵國 PK。只有責任、生命週期或讀者明確不同時才拆檔。
-
-工作筆記模板應保留 Pitfall ID、聚合次數、權威位置、歷史證據與封存連結欄位；來源索引與 Clippings 保留原始資料，不用它們承擔現行規則。
+檔案保護、來源／保密、3／5 升級與去重均依共用協定。初始化不繞過資料庫或產品權限，也不把已有專案重新當空白範本建立。

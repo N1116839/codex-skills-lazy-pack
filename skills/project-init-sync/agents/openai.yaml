@@ -1,3 +1,4 @@
-display_name: Project Init Sync
-short_description: Initialize classroom tools project working mode.
-default_prompt: 初始化班級工具工作模式
+interface:
+  display_name: "專案初始化"
+  short_description: "建立單一專案入口、工作中保存與接續規則，依需求保留工具及資料庫"
+  default_prompt: "使用 $project-init-sync 初始化或修復這個專案的接續環境。"

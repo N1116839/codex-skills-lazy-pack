@@ -1,34 +1,42 @@
-#!/bin/bash
-# install-all-skills.sh
-# Installs all personal skills to Codex and Claude Code.
-# Works on macOS and Linux.
-# Usage: bash install-all-skills.sh
-
-set -e
-
+#!/usr/bin/env bash
+# Overlay personal skills; back up collisions, preserve unrelated local files.
+set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SOURCE="$SCRIPT_DIR/skills"
+[[ -d "$SOURCE" ]] || { echo "Missing bundled skills: $SOURCE" >&2; exit 1; }
 TARGETS=("$HOME/.codex/skills" "$HOME/.claude/skills")
-
-if [ ! -d "$SOURCE" ]; then
-    echo "ERROR: Cannot find bundled skills folder: $SOURCE"
-    exit 1
-fi
-
-count=0
-for skill_dir in "$SOURCE"/*/; do
-    name=$(basename "$skill_dir")
-    [ "$name" = ".system" ] && continue
-    for target in "${TARGETS[@]}"; do
-        mkdir -p "$target"
-        dest="$target/$name"
-        rm -rf "$dest"
-        cp -r "$skill_dir" "$dest"
+# Optional explicit destination(s) also support isolated restore tests.
+if (( $# )); then TARGETS=("$@"); fi
+STAMP="$(date +%Y%m%d_%H%M%S)_$$"
+for target in "${TARGETS[@]}"; do
+    [[ ! -L "$target" ]] || { echo "Refusing linked target: $target" >&2; exit 1; }
+    mkdir -p "$target"
+    target="$(cd "$target" && pwd -P)"
+    backup="$(dirname "$target")/backups/codex_skills_$STAMP"
+    for skill_dir in "$SOURCE"/*/; do
+        [[ -d "$skill_dir" ]] || continue
+        name="$(basename "$skill_dir")"
+        [[ "$name" != '.system' ]] || continue
+        while IFS= read -r -d '' file; do
+            relative="${file#"$SOURCE"/}"
+            dest="$target/$relative"
+            parent="$(dirname "$dest")"
+            check="$parent"
+            while [[ "$check" != "$target" && "$check" != '/' ]]; do
+                [[ ! -L "$check" ]] || { echo "Refusing linked path: $check" >&2; exit 1; }
+                check="$(dirname "$check")"
+            done
+            [[ ! -L "$dest" ]] || { echo "Refusing linked file: $dest" >&2; exit 1; }
+            mkdir -p "$parent"
+            if [[ -f "$dest" ]]; then
+                cmp -s "$file" "$dest" && continue
+                mkdir -p "$(dirname "$backup/$relative")"
+                cp -p "$dest" "$backup/$relative"
+            fi
+            cp -p "$file" "$dest"
+            cmp -s "$file" "$dest" || { echo "Copy mismatch: $dest" >&2; exit 1; }
+        done < <(find "$skill_dir" -type f ! -path '*/__pycache__/*' ! -name '*.pyc' -print0)
     done
-    echo "  [OK] Installed skill: $name"
-    count=$((count + 1))
+    echo "Installed skills at $target; changed originals backed up at $backup when needed."
 done
-
-echo ""
-echo "Done. Installed $count skills to Codex and Claude Code."
-echo "Restart the agent so newly installed skills are detected."
+echo 'Restart skill discovery. Codex continuity hooks require separate installation and user trust; see README.'
