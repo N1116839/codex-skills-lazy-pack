@@ -1,0 +1,6 @@
+interface:
+  display_name: "講人話"
+  short_description: "保留作者的前言、觀點與聲音，讓文章的論述、連接詞和段落自然推進"
+  default_prompt: "請用 $jiang-ren-hua 協助處理這段文字，保留我的觀點與語氣，讓理由、文獻與前後段落接得起來。"
+policy:
+  allow_implicit_invocation: true

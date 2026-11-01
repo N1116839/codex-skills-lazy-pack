@@ -1,6 +1,6 @@
 # Codex Skills Index
 
-更新時間：2026-10-20
+更新時間：2026-11-01
 
 ## 2026-10-20 接續技能修復
 
@@ -23,6 +23,7 @@
 
 | research-content-organization | personal | `skills/research-content-organization` | `packages/research-content-organization.zip` | 讀取實際內容後分類研究資料、保存原始證據、標示完成／未完成／淘汰路徑；觸發於「資料整理」「整理資料」「資料分類」「清理暫存檔」。 |
 | speak-human-tw | personal | `skills/speak-human-tw` | `packages/speak-human-tw.zip` | 繁體中文去 AI 味校對：保留事實、校正台灣用語與標點；觸發於「去 AI 味」「說人話」「改自然一點」。 |
+| jiang-ren-hua（講人話） | personal | `skills/jiang-ren-hua` | `packages/jiang-ren-hua.zip` | 以作者思考帶領文章，保留前言與主張，讓文獻、連接詞及段落自然推進；不套制式段落、不保證AI檢測。 |
 
 ## 系統 skills 索引
 
