@@ -13,7 +13,7 @@ import time
 MANIFEST = '.project-workflow.json'
 START = '<!-- workflow:current:start -->'
 END = '<!-- workflow:current:end -->'
-VERSION = '1.0.0'
+VERSION = '1.1.0'
 
 
 class WorkflowError(Exception):
@@ -91,7 +91,7 @@ def section(path, start, end):
     return result
 
 
-def snapshot(manifest):
+def manifest_sources(manifest):
     raw = read(manifest)
     cfg = json.loads(raw)
     if not isinstance(cfg, dict):
@@ -108,24 +108,53 @@ def snapshot(manifest):
     ids = [item[0] for item in sources]
     if len(ids) != len(set(ids)):
         raise WorkflowError('Duplicate source id.')
-    sections, hashes = [], []
-    for name, spec in sources:
-        path = resolve_path(spec['path'], manifest, cfg)
-        value = section(path, spec.get('start', START), spec.get('end', END))
-        sha = digest(value)
-        sections.append(f'[{name}] {path}\n{value}')
-        hashes.append({'id': name, 'path': str(path), 'sha256': sha})
-    text = '\n\n'.join(sections)
     if not isinstance(cfg.get('limits', {}), dict):
         raise WorkflowError('limits must be an object.')
     limit = cfg.get('limits', {}).get('max_chars', 12000)
     if not isinstance(limit, int) or not 100 <= limit <= 50000:
         raise WorkflowError('max_chars must be 100..50000.')
+    return raw, cfg, sources, limit
+
+
+def source_blocks(manifest, cfg, sources):
+    for name, spec in sources:
+        path = resolve_path(spec['path'], manifest, cfg)
+        value = section(path, spec.get('start', START), spec.get('end', END))
+        block = f'[{name}] {path}\n{value}'
+        yield block, {'id': name, 'path': str(path), 'sha256': digest(value)}
+
+
+def inspect_context(manifest):
+    """Report sizes without emitting document text, including over-budget projects."""
+    _, cfg, sources, limit = manifest_sources(manifest)
+    sizes = [{'id': info['id'], 'path': info['path'], 'chars': len(block)}
+             for block, info in source_blocks(manifest, cfg, sources)]
+    total = sum(item['chars'] for item in sizes) + 2 * (len(sizes) - 1)
+    return {'project_id': cfg['project_id'], 'manifest': str(manifest), 'chars': total,
+            'max_chars': limit, 'within_limit': total <= limit, 'sources': sizes}
+
+
+def snapshot(manifest, *, section_id=None):
+    raw, cfg, sources, limit = manifest_sources(manifest)
+    if section_id is not None:
+        sources = [(name, spec) for name, spec in sources if name == section_id]
+        if not sources:
+            raise WorkflowError(f'Unknown source id: {section_id}. Run inspect for configured IDs.')
+    blocks, hashes = zip(*source_blocks(manifest, cfg, sources))
+    text = '\n\n'.join(blocks)
     if len(text) > limit:
-        raise WorkflowError(f'Current context has {len(text)} characters, limit {limit}; consolidate, do not truncate.')
+        target = 'Current context' if section_id is None else f'Section {section_id}'
+        raise WorkflowError(
+            f'{target} has {len(text)} characters, limit {limit}; '
+            'run inspect to locate the oversized sections, use context --section <id> '
+            'for bounded manual reads, and archive superseded material before retrying.'
+        )
+    common = {'project_id': cfg['project_id'], 'manifest': str(manifest),
+              'sources': list(hashes), 'text': text, 'chars': len(text), 'max_chars': limit}
+    if section_id is not None:
+        return {**common, 'complete': False, 'section': section_id}
     signature = digest(json.dumps({'manifest': digest(raw), 'sources': hashes}, sort_keys=True, ensure_ascii=False))
-    return {'project_id': cfg['project_id'], 'manifest': str(manifest), 'state_hash': hashes[0]['sha256'],
-            'context_hash': signature, 'sources': hashes, 'text': text}
+    return {**common, 'state_hash': hashes[0]['sha256'], 'context_hash': signature}
 
 
 def cache_file(manifest, session, turn):
@@ -257,10 +286,13 @@ def main():
         item.add_argument('--project', required=True)
         item.add_argument('--session')
         item.add_argument('--turn')
+        if name == 'context':
+            item.add_argument('--section', help='Read one configured source without recording a review receipt.')
         if name == 'checkpoint':
             item.add_argument('--expected-state-hash', required=True)
             item.add_argument('--result', choices=['updated', 'unchanged'], required=True)
             item.add_argument('--reason', required=True)
+    sub.add_parser('inspect', help='Report per-source character counts and the project budget.').add_argument('--project', required=True)
     sub.add_parser('hook')
     item = sub.add_parser('ledger')
     item.add_argument('path')
@@ -276,7 +308,13 @@ def main():
             manifest = discover(args.project)
             if manifest is None:
                 raise WorkflowError('No opted-in project manifest found.')
-            snap = snapshot(manifest)
+            if args.command == 'inspect':
+                print(json.dumps(inspect_context(manifest), ensure_ascii=False))
+                return 0
+            section_id = getattr(args, 'section', None)
+            if section_id is not None and (args.session or args.turn):
+                raise WorkflowError('A section read is partial and cannot register a session or turn.')
+            snap = snapshot(manifest, section_id=section_id)
             if args.command == 'checkpoint':
                 result = checkpoint(snap, args.session, args.turn, args.expected_state_hash, args.result, args.reason)
             else:

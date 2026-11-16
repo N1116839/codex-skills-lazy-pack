@@ -12,8 +12,8 @@
 | html-evidence-training-builder | 可追溯 HTML 訓練資料庫 |
 | html-training-deck | HTML 教育訓練簡報 |
 | project-init-sync | 依專案需要建立唯一現況入口與接續環境；初始化專案 |
-| startup-sync | 開工恢復、工作中保存、交付前重核；開工、繼續專案 |
-| shutdown-sync | 收工結算事件、去重並依既有授權同步；收工、換電腦 |
+| startup-sync | 跨 AI 開工恢復、分區載入及交付前重核；開工、繼續專案 |
+| shutdown-sync | 收工封存舊資訊、進版踩坑規則並驗接續容量；收工、換電腦 |
 | skills-sync | 技能備份、打包與 GitHub 同步 |
 | rdq | 需求探索與規格卡；用 RDQ、先訪談我 |
 | research-content-organization | 依實際內容整理研究資料 |
@@ -38,9 +38,9 @@ macOS／Linux 執行 `bash install-all-skills.sh`。腳本將技能複製至 `.c
 
 個別 ZIP 位於 `packages/`，整包為 `packages/codex-personal-skills-bundle.zip`。初始化、開工、收工三技能共用 startup-sync 的規範與程式，請一起安裝。`.system` 只列索引，不打包。
 
-## 長任務接續（2026-10-20）
+## 長任務與跨 AI 接續
 
-- 唯一工作筆記現行區保存任務、底稿、更正、進度與下一步；AGENTS／README 等只作入口。使用者決策在工作中即保存，收工再結算。
+- 各 AI 從同一份現行區取得任務、最新底稿、決策與下一步，並按規則 ID 或事件回查歷史。收工把錯誤及過期原文封存，保留替代版的回鏈，再驗現行區是否可載入。
 - 同專案同根因第 3 次提升專案重要規則，第 5 次提升全域；歷史累計不歸零。同次澄清不重算，新交付再犯另計。先保存可追溯證據，再移除活躍重複文字。
 - Firebase、其他資料庫與部署按專案需要選用；保留已有配置。初始化不再強制套用班級工具。
 - 專案建立 `.project-workflow.json` 才選用檢查器；沒有此檔的專案不受 Hook 影響。狀態與私人事件帳留在專案／vault，不上傳本 repo。
@@ -48,10 +48,14 @@ macOS／Linux 執行 `bash install-all-skills.sh`。腳本將技能複製至 `.c
 詳見 [共用接續協定](skills/startup-sync/references/workflow.md)。Python 3.10+，執行程式僅需標準庫。
 
 ```text
+python <startup-sync>/scripts/project_workflow.py inspect --project <專案>
 python <startup-sync>/scripts/project_workflow.py validate --project <專案>
+python <startup-sync>/scripts/project_workflow.py context --project <專案> --section current
 python <startup-sync>/scripts/install_hooks.py --dry-run
 python <startup-sync>/scripts/install_hooks.py
 ```
+
+整包超限時，`inspect` 仍回傳各區用量，再用 `context --section <id>` 按需讀取。分區讀取不產生完整驗收憑據。沒有 Hook 的 AI 可讀同一份檔案或執行上述指令。
 
 安裝器合併 Codex 的 SessionStart（含 compact）、UserPromptSubmit 與 Stop，保留其他 Hook，不修改模型、MCP 或資料庫。換機要重新安裝 Hook，以刷新 Python 與腳本路徑；可用 `--uninstall` 移除本工具事件。
 

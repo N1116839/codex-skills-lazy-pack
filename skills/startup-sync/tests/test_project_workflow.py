@@ -65,6 +65,38 @@ class ContinuityTests(unittest.TestCase):
         self.config['limits'] = {'max_chars': 100}; self.write_config()
         with self.assertRaises(w.WorkflowError): w.snapshot(self.manifest)
 
+    def test_oversized_context_can_be_inspected_and_read_in_sections(self):
+        full = w.snapshot(self.manifest)
+        report = w.inspect_context(self.manifest)
+        self.assertEqual(report['chars'], len(full['text']))
+        self.assertEqual([item['id'] for item in report['sources']], ['current', 'scope'])
+        self.assertNotIn('text', report)
+        self.config['limits'] = {'max_chars': max(100, *(s['chars'] for s in report['sources']))}
+        self.write_config()
+        report = w.inspect_context(self.manifest)
+        self.assertFalse(report['within_limit'])
+        with self.assertRaisesRegex(w.WorkflowError, 'run inspect'):
+            w.snapshot(self.manifest)
+        state = w.snapshot(self.manifest, section_id='current')
+        self.assertFalse(state['complete'])
+        self.assertIn('preserve Firebase', state['text'])
+        self.assertNotIn('Review only', state['text'])
+        self.assertNotIn('state_hash', state)
+        self.assertIn('Review only', w.snapshot(self.manifest, section_id='scope')['text'])
+        with self.assertRaisesRegex(w.WorkflowError, 'Unknown source id'):
+            w.snapshot(self.manifest, section_id='wrong')
+
+    def test_partial_cli_cannot_register_review_receipt(self):
+        script = Path(w.__file__)
+        args = [sys.executable, '-X', 'utf8', str(script), 'context', '--project', str(self.root),
+                '--section', 'current']
+        out = subprocess.run(args, check=True, capture_output=True, encoding='utf-8')
+        self.assertFalse(json.loads(out.stdout)['complete'])
+        failed = subprocess.run(args + ['--session', 's', '--turn', 't'], capture_output=True, encoding='utf-8')
+        self.assertEqual(failed.returncode, 1)
+        self.assertIn('partial', json.loads(failed.stderr)['error'])
+        self.assertFalse(w.cache_file(self.manifest, 's', 't').exists())
+
     def test_vault_reference(self):
         self.config['vault_root'] = str(self.root)
         self.config['state']['path'] = '${vault}/note.md'; self.write_config()
